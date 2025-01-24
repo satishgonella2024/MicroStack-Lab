@@ -1,0 +1,65 @@
+version: "3.8"
+services:
+  postgres-db:
+    image: postgres:13
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: microservices
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db-init:/docker-entrypoint-initdb.d
+    networks:
+      - microservices-network
+
+  user-service:
+    build:
+      context: ./user-service
+    container_name: user-service
+    ports:
+      - "5001:5001"
+    environment:
+      DB_HOST: postgres-db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_NAME: microservices
+    depends_on:
+      - postgres-db
+    networks:
+      - microservices-network
+
+  feedback-service:
+    build:
+      context: ./feedback-service
+    container_name: feedback-service
+    ports:
+      - "5003:5002"
+    environment:
+      DB_HOST: postgres-db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_NAME: microservices
+    depends_on:
+      - postgres-db
+    networks:
+      - microservices-network
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - user-service
+      - feedback-service
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge

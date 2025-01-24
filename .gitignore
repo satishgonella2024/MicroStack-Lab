@@ -1,0 +1,33 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Docker
+*.pid
+.env
+docker-compose.override.yml
+coverage/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Build Artifacts
+dist/
+build/
+
+# OS-specific
+Thumbs.db
+desktop.ini
+*.~lock.*
+
+# Miscellaneous
+db-data/
