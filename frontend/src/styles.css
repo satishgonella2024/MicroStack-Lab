@@ -1,0 +1,52 @@
+/* Global Styling */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+  }
+  .hero-title {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  /* Cards */
+  .custom-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .custom-card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s;
+  }
+  
+  /* Buttons */
+  button {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+  }
+  button:hover {
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+  }
+  
+  /* Footer */
+  .footer-section {
+    background: linear-gradient(120deg, #2575fc, #6a11cb);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+  }
